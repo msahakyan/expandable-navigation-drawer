@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">ExpandableNavigationDrawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="film_genres">Film genres</string>
+    <string name="website">https://en.wikipedia.org/wiki/Film</string>
+    <string name="date">22 Oct 2015</string>
+    <string name="selected_item">Selected item</string>
+
+    <string-array name="film_genre">
+        <item>Action</item>
+        <item>Musical</item>
+        <item>Drama</item>
+        <item>Thriller</item>
+        <item>Comedy</item>
+    </string-array>
+
+    <string-array name="actionFilms">
+        <item>Dr. No (1962)</item>
+        <item>Goldfinger (1964)</item>
+        <item>Thunderball (1965)</item>
+        <item>Live and Let Die (1973)</item>
+        <item>Moonraker (1979)</item>
+        <item>For Your Eyes Only (1981)</item>
+        <item>Octopussy (1983)</item>
+        <item>A View to a Kill (1985)</item>
+        <item>Licence to Kill (1989)</item>
+        <item>GoldenEye (1995)</item>
+    </string-array>
+    
+    <string-array name="musicals">
+        <item>Naughty Marietta (1935)</item>
+        <item>Rose Marie (1936)</item>
+        <item>Maytime (1937)</item>
+        <item>Sweethearts (1938)</item>
+        <item>Bitter Sweet (1940)</item>
+        <item>New Moon (1940)</item>
+        <item>I Married an Angel (1942)</item>
+        <item>Lady Be Good (1941)</item>
+        <item>Ship Ahoy (1942)</item>
+        <item>Sensations of 1945 (1944)</item>
+    </string-array>
+
+    <string-array name="dramas">
+        <item>Home of the Brave (1949)</item>
+        <item>The Accused (1949)</item>
+        <item>12 Angry Men (1957)</item>
+        <item>Compulsion (1959)</item>
+        <item>Inherit the Wind (1960)</item>
+        <item>To Kill a Mockingbird (1962)</item>
+        <item>Mrs. Miniver (1942)</item>
+        <item>Since You Went Away (1944)</item>
+        <item>The Champ (1931)</item>
+        <item>Nashville (1975)</item>
+    </string-array>
+    
+    <string-array name="thrillers">
+        <item>Alien (1979)</item>
+        <item>The French Connection (1971)</item>
+        <item>High Noon (1952)</item>
+        <item>Double Indemnity (1944)</item>
+        <item>Safety Last (1923)</item>
+        <item>The Lady From Shanghai (1948)</item>
+        <item>The Third Man (1949)</item>
+        <item>Rear Window (1954)</item>
+        <item>The 39 Steps (1935)</item>
+        <item>Shadow of a Doubt (1943)</item>
+    </string-array>
+
+    <string-array name="comedies">
+        <item>Safety Last (1923)</item>
+        <item>Duck Soup (1933)</item>
+        <item>Cat Ballou (1965)</item>
+        <item>What\'s Up, Tiger Lily? (1966)</item>
+        <item>Blazing Saddles (1974)</item>
+        <item>Play It Again, Sam (1972)</item>
+        <item>The Cheap Detective (1978)</item>
+        <item>The Naked Gun (1988)</item>
+        <item>The Freshman (1990)</item>
+        <item>Waiting for Guffman (1996) </item>
+    </string-array>
+    
+</resources>
