@@ -4,35 +4,38 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.TextView;
 
 import com.android.msahakyan.expandablenavigationdrawer.adapter.CustomExpandableListAdapter;
 import com.android.msahakyan.expandablenavigationdrawer.datasource.ExpandableListDataSource;
+import com.android.msahakyan.expandablenavigationdrawer.fragment.navigation.FragmentNavigationManager;
+import com.android.msahakyan.expandablenavigationdrawer.fragment.navigation.NavigationManager;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private String mActivityTitle;
+    private String[] items;
 
     private ExpandableListView mExpandableListView;
     private ExpandableListAdapter mExpandableListAdapter;
     private List<String> mExpandableListTitle;
+    private NavigationManager mNavigationManager;
+
     private Map<String, List<String>> mExpandableListData;
-    private TextView mSelectedItemView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +46,9 @@ public class MainActivity extends ActionBarActivity {
         mActivityTitle = getTitle().toString();
 
         mExpandableListView = (ExpandableListView) findViewById(R.id.navList);
-        mSelectedItemView = (TextView) findViewById(R.id.selected_item);
+        mNavigationManager = FragmentNavigationManager.obtain(this);
+
+        initItems();
 
         LayoutInflater inflater = getLayoutInflater();
         View listHeaderView = inflater.inflate(R.layout.nav_header, null, false);
@@ -55,8 +60,24 @@ public class MainActivity extends ActionBarActivity {
         addDrawerItems();
         setupDrawer();
 
+        if (savedInstanceState == null) {
+            selectFirstItemAsDefault();
+        }
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+    }
+
+    private void selectFirstItemAsDefault() {
+        if (mNavigationManager != null) {
+            String firstActionMovie = getResources().getStringArray(R.array.actionFilms)[0];
+            mNavigationManager.showFragmentAction(firstActionMovie);
+            getSupportActionBar().setTitle(firstActionMovie);
+        }
+    }
+
+    private void initItems() {
+        items = getResources().getStringArray(R.array.film_genre);
     }
 
     private void addDrawerItems() {
@@ -66,7 +87,6 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onGroupExpand(int groupPosition) {
                 getSupportActionBar().setTitle(mExpandableListTitle.get(groupPosition).toString());
-                mSelectedItemView.setText(mExpandableListTitle.get(groupPosition).toString());
             }
         });
 
@@ -74,7 +94,6 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onGroupCollapse(int groupPosition) {
                 getSupportActionBar().setTitle(R.string.film_genres);
-                mSelectedItemView.setText(R.string.selected_item);
             }
         });
 
@@ -85,7 +104,21 @@ public class MainActivity extends ActionBarActivity {
                 String selectedItem = ((List) (mExpandableListData.get(mExpandableListTitle.get(groupPosition))))
                     .get(childPosition).toString();
                 getSupportActionBar().setTitle(selectedItem);
-                mSelectedItemView.setText(mExpandableListTitle.get(groupPosition).toString() + " -> " + selectedItem);
+
+                if (items[0].equals(mExpandableListTitle.get(groupPosition))) {
+                    mNavigationManager.showFragmentAction(selectedItem);
+                } else if (items[1].equals(mExpandableListTitle.get(groupPosition))) {
+                    mNavigationManager.showFragmentComedy(selectedItem);
+                } else if (items[2].equals(mExpandableListTitle.get(groupPosition))) {
+                    mNavigationManager.showFragmentDrama(selectedItem);
+                } else if (items[3].equals(mExpandableListTitle.get(groupPosition))) {
+                    mNavigationManager.showFragmentMusical(selectedItem);
+                } else if (items[4].equals(mExpandableListTitle.get(groupPosition))) {
+                    mNavigationManager.showFragmentThriller(selectedItem);
+                } else {
+                    throw new IllegalArgumentException("Not supported fragment type");
+                }
+
                 mDrawerLayout.closeDrawer(GravityCompat.START);
                 return false;
             }
@@ -140,11 +173,6 @@ public class MainActivity extends ActionBarActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         // Activate the navigation drawer toggle
         if (mDrawerToggle.onOptionsItemSelected(item)) {

@@ -11,5 +11,6 @@
     <dimen name="nav_drawer_width">235dp</dimen>
 
     <dimen name="header_font_size">14sp</dimen>
+    <dimen name="movie_icon_container_height">300dp</dimen>
 
 </resources>

@@ -8,4 +8,10 @@
 
     <color name="group_divider_color">#80CBC4</color>
     <color name="white">#FFFFFF</color>
+
+    <color name="lime">#E6EE9C</color>
+    <color name="orange">#FFCC80</color>
+    <color name="grey">#B0BEC5</color>
+    <color name="purple">#B39DDB</color>
+    <color name="pink">#F48FB1</color>
 </resources>

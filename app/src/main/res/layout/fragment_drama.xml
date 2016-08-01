@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="com.android.msahakyan.expandablenavigationdrawer.fragment.FragmentDrama">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/movie_icon_container_height">
+
+        <ImageView
+            android:id="@+id/movie_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/movie_genre"
+            android:src="@drawable/movie_icon"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="@dimen/layout_padding_default"
+            android:text="@string/drama_movies"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            android:textColor="@color/white"/>
+
+    </FrameLayout>
+
+
+    <TextView
+        android:id="@+id/movie_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="@dimen/layout_padding_default"
+        android:text="@string/movie_title"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"/>
+
+</LinearLayout>

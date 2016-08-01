@@ -10,10 +10,10 @@
 
     <string-array name="film_genre">
         <item>Action</item>
-        <item>Musical</item>
-        <item>Drama</item>
-        <item>Thriller</item>
         <item>Comedy</item>
+        <item>Drama</item>
+        <item>Musical</item>
+        <item>Thriller</item>
     </string-array>
 
     <string-array name="actionFilms">
@@ -28,7 +28,7 @@
         <item>Licence to Kill (1989)</item>
         <item>GoldenEye (1995)</item>
     </string-array>
-    
+
     <string-array name="musicals">
         <item>Naughty Marietta (1935)</item>
         <item>Rose Marie (1936)</item>
@@ -54,7 +54,7 @@
         <item>The Champ (1931)</item>
         <item>Nashville (1975)</item>
     </string-array>
-    
+
     <string-array name="thrillers">
         <item>Alien (1979)</item>
         <item>The French Connection (1971)</item>
@@ -80,5 +80,15 @@
         <item>The Freshman (1990)</item>
         <item>Waiting for Guffman (1996) </item>
     </string-array>
-    
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="movie_title">movie title</string>
+    <string name="action_movies">Action</string>
+    <string name="musical_movies">Musical</string>
+    <string name="drama_movies">Drama</string>
+    <string name="comedy_movies">Comedy</string>
+    <string name="thriller_movies">Thriller</string>
+    <string name="movie_genre">genre</string>
+
 </resources>
